@@ -150,7 +150,7 @@ var _ = {};
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
-
+//--------------------------------------------------------------------------------------------------------
 /** _.filter
 * Arguments:
 *   1) An array
@@ -179,9 +179,9 @@ _.filter = function(array, func){
     // for loop over array
     for (let i = 0; i < array.length; i++){
         // pass each element into func, determine if each returns true
-        // pass in every element, to provide func with that data 
-        if (func(array[i]), i, array === true){
-            //if true, push into array
+        // pass in every element - (array[i], i, array) - to provide func with all data jic
+        if (func(array[i], i, array)){
+            //if truthy, push into array
             output.push(array[i]);
         }
     }
@@ -190,12 +190,21 @@ _.filter = function(array, func){
 
 };
 
-console.log(_.filter([1,2,3,4,5], function(x){return x%2 === 0})); // should return [2, 4]
-_.filter['alex', 'francis', 'aaron'], function(str){
-    return str[0] === 'a';
-} // should return ['alex', 'aaron']
+console.log(_.filter([1, 2, 3, 4, 5], function(num){
+    if (num % 2 === 0){
+        return 1;
+    } else {
+        return 0;
+    }
+})); // should return [2, 4]
 
+console.log(_.filter([1, 2, 3, 4, 5], function(x){return x%2 === 0})); // should return [2, 4]
 
+console.log(_.filter['alex', 'francis', 'aaron'], function(str){
+    return str[0] === 'a'
+}); // should return ['alex', 'aaron']
+
+//--------------------------------------------------------------------------------------------------------
 /** _.reject
 * Arguments:
 *   1) An array
