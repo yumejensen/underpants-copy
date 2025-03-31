@@ -273,17 +273,13 @@ _.map = function(collection, func){
         // for loop for each item
         for (let i = 0; i < collection.length; i++){
             // pass into func and push into output
-            if (func(collection[i], i, collection)){
-                output.push(collection[i]);
-            }
+            output.push(func(collection[i], i, collection));
         }
     } else { // if not array, assume collection is object
         // for in loop for each thing
         for (let key in collection){
             // pass into func and push into output
-            if (func(collection[key], key, collection)){
-                output.push(collection[key]);
-            }
+            output.push(func(collection[key], key, collection));
         }
     }
     //return output array
@@ -292,7 +288,6 @@ _.map = function(collection, func){
 
 console.log(_.map([1, 2, 3, 4], function(e){return e * 2})); 
 // should return [2, 4, 6, 8]
-
 console.log(_.map({ a: 1, b: 2 }, function(e){ return e * 2})); 
 // should return [2, 4]
 
