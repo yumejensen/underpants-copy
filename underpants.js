@@ -3,6 +3,13 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
+/* 
+FUNCTIONAL LIBRARY 
+// a list of functions that a developer made, published for other devs to use (ex: mocha or chai)
+// this project is to recreate another varsion of the "underscore library"
+how to make one? first, create an object, then add methods to the object 
+*/
+
 var _ = {};
 
 
@@ -20,6 +27,8 @@ var _ = {};
 *   _.identity(5) === 5
 *   _.identity({a: "b"}) === {a: "b"}
 */
+
+//_.identity = 
 
 
 /** _.typeOf
@@ -157,6 +166,34 @@ var _ = {};
 * Extra Credit:
 *   use _.each in your implementation
 */
+/*
+I: Function takes in an arry and a function
+O: A new array of elements, for which calling input function was true
+C: N/A
+E: If input function does not return true or false... ???
+*/
+
+_.filter = function(array, func){
+    // create holder array 
+    const output = [];
+    // for loop over array
+    for (let i = 0; i < array.length; i++){
+        // pass each element into func, determine if each returns true
+        // pass in every element, to provide func with that data 
+        if (func(array[i]), i, array === true){
+            //if true, push into array
+            output.push(array[i]);
+        }
+    }
+    // return holder array
+    return output;
+
+};
+
+console.log(_.filter([1,2,3,4,5], function(x){return x%2 === 0})); // should return [2, 4]
+_.filter['alex', 'francis', 'aaron'], function(str){
+    return str[0] === 'a';
+} // should return ['alex', 'aaron']
 
 
 /** _.reject
