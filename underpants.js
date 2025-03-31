@@ -265,7 +265,7 @@ C: n/a
 E: Make sure it works for objects not just arrays
 */
 
-_.map = function(){
+_.map = function(collection, func){
     //output array
     const output = [];
     // determine whether collection is array
@@ -277,7 +277,6 @@ _.map = function(){
                 output.push(collection[i]);
             }
         }
-        
     } else { // if not array, assume collection is object
         // for in loop for each thing
         for (let key in collection){
@@ -287,7 +286,8 @@ _.map = function(){
             }
         }
     }
-
+    //return output array
+    return output;
 };
 
 console.log(_.map([1, 2, 3, 4], function(e){return e * 2})); 
