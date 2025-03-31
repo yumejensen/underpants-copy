@@ -26,9 +26,14 @@ var _ = {};
 * Examples:
 *   _.identity(5) === 5
 *   _.identity({a: "b"}) === {a: "b"}
+
+I: Any value
+O: Returns the value as is
 */
 
-//_.identity = 
+_.identity = function(value){
+    return value;
+};
 
 
 /** _.typeOf
@@ -51,6 +56,32 @@ var _ = {};
 * _.typeOf([1,2,3]) -> "array"
 */
 
+/*
+I: Any value
+O: Return a string that says type of <value>
+*/
+_.typeOf = function(value){
+    if (typeof value === 'string'){
+    return 'string';
+  } else if (typeof value === 'number'){
+    return 'number';
+  } else if (typeof value === 'undefined'){
+    return 'undefined';
+  } else if (typeof value === 'boolean'){
+    return 'boolean';
+  } else if (value === null){
+    return 'null';
+  } else if (typeof value === 'function'){
+    return 'function';
+  } else if (value instanceof Date){
+    return 'date';
+  } else if (Array.isArray(value)){
+    return 'array';
+  } else if (typeof value === 'object'){
+    return 'object';
+  }
+}
+
 
 /** _.first
 * Arguments:
@@ -69,6 +100,25 @@ var _ = {};
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
+
+/*
+I: An array and a number
+O: An empty array if <array> not an array
+   The first element of <array> if <number> is not a number/ missing
+   The first number that it finds inside <array>
+C: n/a
+E: What is number is negative? or if number is greater than array length?
+*/
+_.first = function(array, number){
+    // check if array is an array
+    if (!Array.isArray(array)){
+        return [];
+        // check if number is a number or missing
+    } else if (!number || typeof number !== 'number'){
+        return array[0];
+    }
+}
+
 
 
 /** _.last
