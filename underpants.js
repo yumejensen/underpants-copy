@@ -196,13 +196,16 @@ console.log(_.filter([1, 2, 3, 4, 5], function(num){
     } else {
         return 0;
     }
-})); // should return [2, 4]
+})); 
+// should return [2, 4]
 
-console.log(_.filter([1, 2, 3, 4, 5], function(x){return x%2 === 0})); // should return [2, 4]
+console.log(_.filter([1, 2, 3, 4, 5], function(x){return x%2 === 0})); 
+// should return [2, 4]
 
-console.log(_.filter['alex', 'francis', 'aaron'], function(str){
+console.log(_.filter(['alex', 'francis', 'aaron'], function(str){
     return str[0] === 'a'
-}); // should return ['alex', 'aaron']
+})); 
+// should return ['alex', 'aaron']
 
 //--------------------------------------------------------------------------------------------------------
 /** _.reject
@@ -238,7 +241,7 @@ console.log(_.filter['alex', 'francis', 'aaron'], function(str){
 }
 */
 
-
+//--------------------------------------------------------------------------------------------------------
 /** _.map
 * Arguments:
 *   1) A collection
@@ -255,7 +258,45 @@ console.log(_.filter['alex', 'francis', 'aaron'], function(str){
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+/*
+I: A collection - array or object, and a callback function
+O: A new array containing results of invoking callback on each item
+C: n/a
+E: Make sure it works for objects not just arrays
+*/
 
+_.map = function(){
+    //output array
+    const output = [];
+    // determine whether collection is array
+    if (Array.isArray(collection)){
+        // for loop for each item
+        for (let i = 0; i < collection.length; i++){
+            // pass into func and push into output
+            if (func(collection[i], i, collection)){
+                output.push(collection[i]);
+            }
+        }
+        
+    } else { // if not array, assume collection is object
+        // for in loop for each thing
+        for (let key in collection){
+            // pass into func and push into output
+            if (func(collection[key], key, collection)){
+                output.push(collection[key]);
+            }
+        }
+    }
+
+};
+
+console.log(_.map([1, 2, 3, 4], function(e){return e * 2})); 
+// should return [2, 4, 6, 8]
+
+console.log(_.map({ a: 1, b: 2 }, function(e){ return e * 2})); 
+// should return [2, 4]
+
+//--------------------------------------------------------------------------------------------------------
 /** _.pluck
 * Arguments:
 *   1) An array of objects
