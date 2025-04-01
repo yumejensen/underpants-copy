@@ -82,7 +82,7 @@ _.typeOf = function(value){
   }
 }
 
-
+//--------------------------------------------------------------------------------------------------------
 /** _.first
 * Arguments:
 *   1) An array
@@ -110,17 +110,29 @@ C: n/a
 E: What is number is negative? or if number is greater than array length?
 */
 _.first = function(array, number){
-    // check if array is an array
-    if (!Array.isArray(array)){
-        return [];
+    // check if array is an array - if NOT array or if number negative, return []
+    if (!Array.isArray(array) || number <= 0){
+      return [];
         // check if number is a number or missing
     } else if (!number || typeof number !== 'number'){
-        return array[0];
+      return array[0];
+        // if the number is bigger than the array length, return whole array
+    } else if (number > array.length){
+      return array;
+      // else, return an array with <number> of items starting from beginning
+    } else { 
+      // new array
+      let firstUntil = [];
+      // for loop that goes until <number>
+      for (let i = 0; i < number.length; i++){
+        firstUntil.push(array[i]);
+      }
+      return firstUntil;
     }
 }
 
 
-
+//--------------------------------------------------------------------------------------------------------
 /** _.last
 * Arguments:
 *   1) An array
@@ -271,6 +283,7 @@ console.log(_.filter(['alex', 'francis', 'aaron'], function(str){
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
+//--------------------------------------------------------------------------------------------------------
 
 /** _.partition
 * Arguments:
@@ -353,6 +366,7 @@ console.log(_.map({ a: 1, b: 2 }, function(e){ return e * 2}));
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
+//--------------------------------------------------------------------------------------------------------
 
 /** _.every
 * Arguments:
@@ -375,6 +389,7 @@ console.log(_.map({ a: 1, b: 2 }, function(e){ return e * 2}));
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+//--------------------------------------------------------------------------------------------------------
 
 /** _.some
 * Arguments:
