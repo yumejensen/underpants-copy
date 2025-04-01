@@ -146,7 +146,7 @@ _.first = function(array, number){
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
-
+//--------------------------------------------------------------------------------------------------------
 /** _.indexOf
 * Arguments:
 *   1) An array
@@ -163,7 +163,7 @@ _.first = function(array, number){
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
-
+//--------------------------------------------------------------------------------------------------------
 /** _.contains
 * Arguments:
 *   1) An array
@@ -179,7 +179,7 @@ _.first = function(array, number){
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
-
+//--------------------------------------------------------------------------------------------------------
 /** _.each
 * Arguments:
 *   1) A collection
@@ -196,7 +196,7 @@ _.first = function(array, number){
 *      -> should log "a" "b" "c" to the console
 */
 
-
+//--------------------------------------------------------------------------------------------------------
 /** _.unique
 * Arguments:
 *   1) An array
@@ -407,7 +407,7 @@ console.log(_.map({ a: 1, b: 2 }, function(e){ return e * 2}));
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
-
+//--------------------------------------------------------------------------------------------------------
 /** _.reduce
 * Arguments:
 *   1) An array
@@ -427,7 +427,7 @@ console.log(_.map({ a: 1, b: 2 }, function(e){ return e * 2}));
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
-
+//--------------------------------------------------------------------------------------------------------
 /** _.extend
 * Arguments:
 *   1) An Object
