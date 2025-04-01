@@ -401,9 +401,10 @@ console.log(_.map({ a: 1, b: 2 }, function(e){ return e * 2}));
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 _.every = function(collection, func){
+  
   // pt. 1 : determine if collection is an array
   if (Array.isArray(collection)){
-    // pt. 1A : if func is NOT a function -> evaluate collection for truthy or falsy
+    // pt. 1A : func is NOT a function -> evaluate collection for truthy or falsy
     if (!func || typeof func !== "function"){
       // evaluate everything in collection for truthy or falsy
       for (let i = 0; i < collection.length; i++){
@@ -412,7 +413,8 @@ _.every = function(collection, func){
         } 
       }
       return true;
-    //pt. 1B : if func IS a function -> pass everything in collection into func
+    //pt. 1B : func IS a function -> pass everything in collection into func
+    //         pass these into function (current element, index, collection)
     } else {
       for (let i = 0; i < collection.length; i++){
         // if anything in collection is false, return false - else true
@@ -426,7 +428,7 @@ _.every = function(collection, func){
 
   // pt. 2 determine in collection is an object
   else {
-    // pt. 2A : if func is NOT a function - > evaluate object for truthy or falsy
+    // pt. 2A : func is NOT a function - > evaluate object for truthy or falsy
     if (!func || typeof func !== "function"){
       for (let key in collection){
         if(!collection[key]){
@@ -434,7 +436,8 @@ _.every = function(collection, func){
         }
       }
       return true;
-    // pt. 2B : pass elements in OBJECT into callback func, if one is false return false
+    // pt. 2B : func IS a function -> pass elements in OBJECT into callback func, if one is false return false
+    //          pass these into function (current value, current key, collection)
     } else {
       for (let key in collection){
         if (!func(collection[key], key, collection)){
