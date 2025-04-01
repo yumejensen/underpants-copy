@@ -448,20 +448,7 @@ _.every = function(collection, func){
     }
   }
 
-    
-  // // pt. 2 determine if collection is an object
-  // } else {
-  //   if (){ // determine if func IS a function
-      
-  //   } else { // there IS a callback function
-      
-  //   }
-  // }
-//}
-
-};
-
-
+};  
 
 //--------------------------------------------------------------------------------------------------------
 
