@@ -145,6 +145,23 @@ _.first = function(array, number){
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
+_.last = function(array, number){
+  // if NOT array or if number negative, return []
+  if (!Array.isArray(array) || number < 0){
+    return [];
+    // if number is a number or missing, return last element
+  } else if (!number || typeof number !== 'number'){
+    return array[array.length - 1];
+    // if the number is bigger than the array length, return whole array
+  } else if (number > array.length){
+    return array;
+    // edge cases are done - now ELSE return an array with <number> of items
+    // slice method to return from start until the number
+  } else { 
+    return array.slice(number - 1, array.length);
+  }
+}
+//console.log(_.last(["a", "b", "c"], 2)); //works!
 
 //--------------------------------------------------------------------------------------------------------
 /** _.indexOf
