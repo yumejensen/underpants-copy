@@ -472,6 +472,56 @@ _.every = function(collection, func){
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
+_.some = function(collection, func){
+  // pt 1 array
+  if (Array.isArray(collection)){
+    //pt 1 A : if func is NOT a function
+    if (!func || typeof func !== "function"){
+      //for loop go through array and if ANY truthy true, else false
+      for (let i = 0; i < collection.length; i++){
+        if(collection[i]){
+          return true;
+        }
+      }
+      return false; // if NONE are truthy, return false
+    } else {
+      //pt 1 B: pass everything into function
+      for (let i = 0; i < collection.length; i++){
+        if(func(collection[i], i, collection)){
+          return true;
+        }
+      }
+      return false; // if NONE are truthy return false
+    }
+  //pt 2 object
+  } else {
+    // pt 2 A : if func NOT a function
+    if (!func || typeof func !== "function"){
+      // for in loop go through object and if ANY are truthy true, else false
+      for (let key in collection){
+        if (collection[key]){
+          return true;
+        }
+      }
+      return false; // if NONE are truthy, return false
+    //pt 2 B: if func IS a function, pass (key, value, object) into the function 
+    } else {
+      for (let key in collection){
+        if (func(collection[key], key, collection)){
+          return true;
+        }
+      }
+      return false;
+    }
+
+
+
+  } 
+
+
+  //pt 2 object
+
+}
 
 //--------------------------------------------------------------------------------------------------------
 // reduce has video tutorials!!! in shared google doc
