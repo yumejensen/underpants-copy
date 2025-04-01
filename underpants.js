@@ -400,6 +400,66 @@ console.log(_.map({ a: 1, b: 2 }, function(e){ return e * 2}));
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
+_.every = function(collection, func){
+  // pt. 1 : determine if collection is an array
+  if (Array.isArray(collection)){
+    // pt. 1A : if func is NOT a function -> evaluate collection for truthy or falsy
+    if (!func || typeof func !== "function"){
+      // evaluate everything in collection for truthy or falsy
+      for (let i = 0; i < collection.length; i++){
+        if (!collection[i]){
+          return false;
+        } 
+      }
+      return true;
+    //pt. 1B : if func IS a function -> pass everything in collection into func
+    } else {
+      for (let i = 0; i < collection.length; i++){
+        // if anything in collection is false, return false - else true
+        if (!func(collection[i])){
+          return false;
+        }
+      }
+      return true;
+    }
+  }
+
+  // pt. 2 determine in collection is an object
+  else {
+    // pt. 2A : if func is NOT a function - > evaluate object for truthy or falsy
+    if (!func || typeof func !== "function"){
+      for (let key in collection){
+        if(!collection[key]){
+          return false;
+        }
+      }
+      return true;
+    // pt. 2B : pass OBJECT into callback func, if one is false return false
+    } else {
+      for (let key in collection){
+        if (!func(collection[key])){
+          return false;
+        }
+      }
+      return true;
+    }
+
+  }
+
+    
+  // // pt. 2 determine if collection is an object
+  // } else {
+  //   if (){ // determine if func IS a function
+      
+  //   } else { // there IS a callback function
+      
+  //   }
+  // }
+//}
+
+};
+
+
 
 //--------------------------------------------------------------------------------------------------------
 
@@ -425,6 +485,7 @@ console.log(_.map({ a: 1, b: 2 }, function(e){ return e * 2}));
 */
 
 //--------------------------------------------------------------------------------------------------------
+// reduce has video tutorials!!! in shared google doc
 /** _.reduce
 * Arguments:
 *   1) An array
