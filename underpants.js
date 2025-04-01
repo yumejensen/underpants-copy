@@ -513,15 +513,8 @@ _.some = function(collection, func){
       }
       return false;
     }
-
-
-
   } 
-
-
-  //pt 2 object
-
-}
+};
 
 //--------------------------------------------------------------------------------------------------------
 // reduce has video tutorials!!! in shared google doc
