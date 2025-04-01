@@ -416,7 +416,7 @@ _.every = function(collection, func){
     } else {
       for (let i = 0; i < collection.length; i++){
         // if anything in collection is false, return false - else true
-        if (!func(collection[i])){
+        if (!func(collection[i], i, collection)){
           return false;
         }
       }
@@ -434,16 +434,15 @@ _.every = function(collection, func){
         }
       }
       return true;
-    // pt. 2B : pass OBJECT into callback func, if one is false return false
+    // pt. 2B : pass elements in OBJECT into callback func, if one is false return false
     } else {
       for (let key in collection){
-        if (!func(collection[key])){
+        if (!func(collection[key], key, collection)){
           return false;
         }
       }
       return true;
     }
-
   }
 
     
