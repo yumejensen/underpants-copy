@@ -119,18 +119,13 @@ _.first = function(array, number){
         // if the number is bigger than the array length, return whole array
     } else if (number > array.length){
       return array;
-      // else, return an array with <number> of items starting from beginning
+      // edge cases are done - now ELSE return an array with <number> of items
+      // slice method to return from start until the number
     } else { 
-      // new array
-      let firstUntil = [];
-      // for loop that goes until <number>
-      for (let i = 0; i < number.length; i++){
-        firstUntil.push(array[i]);
-      }
-      return firstUntil;
+      return array.slice(0, number);
     }
 }
-
+//console.log(_.first(["a", "b", "c"], 2)); //test works!
 
 //--------------------------------------------------------------------------------------------------------
 /** _.last
