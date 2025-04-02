@@ -214,7 +214,17 @@ _.indexOf = function(array, value){
 *   2) what if no <value> is given?
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
+
+I: An array and a value
+O: true if <array> contains <value>
+C: use ternary operator
+E: if no value is given, ___
 */
+_.contains = function(array, value){
+  // ternary operator, if array includes value, return true, if not return false
+  return array.includes(value) ? true : false;
+};
+
 
 //--------------------------------------------------------------------------------------------------------
 /** _.each
