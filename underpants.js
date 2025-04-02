@@ -509,7 +509,8 @@ C: use _.map
 E: n/a
 */
 
-//this one WORKS but it doesn't use _.map so sad
+//this one WORKS but it doesn't use _.map
+
 // _.pluck = function (array, property){
 //   // holder array
 //   const allValues = [];
@@ -521,23 +522,15 @@ E: n/a
 //   return allValues;
 // };
 
-// this one is not working
-// _.pluck = function (array, property){
-//   //for loop to go over array
-//   for (let i = 0; i < array.length; i++){
-//     // run the array through map - will return an array with function implemented
-//     // map takes in the array + anonymous function that returns values of key
-//     var plucked = _.map(array, function(){ return array[i][property]});
-//   }
-//   return plucked;
 
-// };
+
+// when map is invoked, it takes in an array and a function and returns an output array with function implemented
 
 _.pluck = function (array, property){
     // run the array through map - will return an array with function implemented
     // map takes in the array + anonymous function that returns values of key
-    _.map(array, function(){ return array[property]});
-  };
+    return _.map(array, function(item){ return item[property]});
+  }; 
   
 
 
