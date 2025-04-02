@@ -390,8 +390,6 @@ _.reject = function(array, func){
   return output;
 };
 
-
-
 //--------------------------------------------------------------------------------------------------------
 
 /** _.partition
@@ -411,7 +409,14 @@ _.reject = function(array, func){
 *     return element % 2 === 0;
 *   }); -> [[2,4],[1,3,5]]
 }
+I: An array and a function
+O: An array with two sub arrays
+   sub array 1 has all truthy results
+   sub array 2 has all falsy results
 */
+
+
+
 
 //--------------------------------------------------------------------------------------------------------
 /** _.map
