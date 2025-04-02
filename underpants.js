@@ -373,7 +373,24 @@ console.log(_.filter(['alex', 'francis', 'aaron'], function(str){
 *   3) This is the logical inverse if _.filter()
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
+
+I: An array and a function
+O: An array of false values (from running each through the function)
 */
+_.reject = function(array, func){
+  // output array
+  const output = [];
+  // for loop array
+  for (let i = 0; i < array.length; i++){
+    // run through function and if not (false)
+    if (!func(array[i], i, array)){
+      output.push(array[i])
+    }
+  }
+  return output;
+};
+
+
 
 //--------------------------------------------------------------------------------------------------------
 
