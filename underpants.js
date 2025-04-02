@@ -296,9 +296,13 @@ _.unique = function(array){
   const uniqueArr = [];
   // for loop to go over array
   for (let i = 0; i < array.length; i++){
-    // push... array's [index of array] <-- inside there should be unique items only...
+    // make a variable for indexOf 
+    // the index of the first instance of something
     let uniqueI = _.indexOf(array, array[i]);
-    uniqueArr.push(array[uniqueI]);
+    // if current i IS the first instance of something, push it
+    if (i === uniqueI){
+      uniqueArr.push(array[i]);
+    }
   }
   return uniqueArr;
 };
@@ -435,8 +439,6 @@ _.partition = function(array, func){
   wholeArr[1] = falsyArr;
   return wholeArr;  
 };
-
-
 
 //--------------------------------------------------------------------------------------------------------
 /** _.map
