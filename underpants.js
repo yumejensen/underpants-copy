@@ -278,6 +278,8 @@ O: a new array with all duplicates removed
 C: use indexOf I created above
 E: n/a
 */
+
+//this one WORKS but it doesn't use _.indexOf
 // _.unique = function(array){
 //   // holder array
 //   const uniqueArr = [];
@@ -500,7 +502,37 @@ console.log(_.map({ a: 1, b: 2 }, function(e){ return e * 2}));
 *   2) You must use _.map() in your implementation.
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
+
+I: An array of objects + a key
+O: An array containing the value of <key> for every object in the array
+C: use _.map
+E: n/a
 */
+
+//this one WORKS but it doesn't use _.map so sad
+// _.pluck = function (array, property){
+//   // holder array
+//   const allValues = [];
+//   // for loop to fo over the array of objects
+//   for (let i = 0; i < array.length; i++){
+//     // push values of <property>
+//     allValues.push(array[i][property]);
+//   }
+//   return allValues;
+// };
+
+_.pluck = function (array, property){
+  //for loop to go over array
+  for (let i = 0; i < array.length; i++){
+    // run the array through map - will return an array with function implemented
+    // map takes in the array + anonymous function that returns values of key
+    var plucked = _.map(array, function(){ return array[i][property]});
+  }
+  return plucked;
+
+};
+
+
 
 //--------------------------------------------------------------------------------------------------------
 
