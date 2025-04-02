@@ -178,7 +178,27 @@ _.last = function(array, number){
 * Examples:
 *   _.indexOf(["a","b","c"], "c") -> 2
 *   _.indexOf(["a","b","c"], "d") -> -1
+
+I: An array and a value
+O: The index of array where first occurance of <value> is
+C: n/a
+E: If <value> not in array, return -1
 */
+_.indexOf = function(array, value){
+  // if value not in array return -1
+  if (!array.includes(value)){
+    return -1;
+  // else, value is in array
+  } else {
+    // for loop to go over the array
+    for (let i = 0; i < array.length; i++){
+      //return first instance of index when value found
+      if (array[i] === value){
+        return i;
+      }
+    }
+  }
+};
 
 //--------------------------------------------------------------------------------------------------------
 /** _.contains
@@ -225,16 +245,30 @@ _.last = function(array, number){
 
 I: an array
 O: a new array with all duplicates removed
+C: use indexOf I created above
+E: n/a
 */
+// _.unique = function(array){
+//   // holder array
+//   const uniqueArr = [];
+//   // for loop going through array
+//   for (let i = 0; i < array.length; i++){
+//     // if NOT in unique array
+//     if (!uniqueArr.includes(array[i])){
+//       uniqueArr.push(array[i]);
+//     }
+//   }
+//   return uniqueArr;
+// };
+
 _.unique = function(array){
-  // holder array
+  // unique array holder
   const uniqueArr = [];
-  // for loop going through array
+  // for loop to go over array
   for (let i = 0; i < array.length; i++){
-    // if NOT in unique array
-    if (!uniqueArr.includes(array[i])){
-      uniqueArr.push(array[i]);
-    }
+    // push... array's [index of array] <-- inside there should be unique items only...
+    let uniqueI = _.indexOf(array, array[i]);
+    uniqueArr.push(array[uniqueI]);
   }
   return uniqueArr;
 };
