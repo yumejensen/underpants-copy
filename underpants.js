@@ -226,22 +226,6 @@ _.last = function(array, number){
 I: an array
 O: a new array with all duplicates removed
 */
-
-// _.unique = function(array){
-//   // holder array for unique items
-//   const uniqueArr = [];
-//   // loop through input array
-//   for (let i = 0; i < array.length; i++){
-//     // if unique array NOT include element
-//     if (!uniqueArr.includes(array[i])){
-//       //push to new array
-//       uniqueArr.push(array[i]);
-//     }
-//   }
-//   // return unique items
-//   return uniqueArr;
-// };
-
 _.unique = function(array){
   // holder array
   const uniqueArr = [];
