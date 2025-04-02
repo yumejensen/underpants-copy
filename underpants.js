@@ -241,7 +241,27 @@ _.contains = function(array, value){
 * Examples:
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
+
+I: An array or an object + a function
+O: Outcome of running the elements of the collection into the function (one by one) 
 */
+_.each = function(collection, func){
+  // pt 1 check if collection an array
+  if (Array.isArray(collection)){
+    //for loop for array
+    for (let i = 0; i < collection.length; i++){
+      // run + log each through func
+      console.log(func(collection[i], i, collection));
+    }
+    // pt 2 if collection an object
+  } else {
+    // for in loop for object
+    for (let key in collection){
+      // run + log each through func
+      console.log(func(collection[key], key, collection));
+    }
+  }
+};
 
 //--------------------------------------------------------------------------------------------------------
 /** _.unique
