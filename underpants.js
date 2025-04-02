@@ -222,7 +222,25 @@ _.last = function(array, number){
 *   2) Use _.indexOf() from above
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
+
+I: an array
+O: a new array with all duplicates removed
 */
+
+_.unique = function(array){
+  // holder array for unique items
+  const uniqueArr = [];
+  // loop through input array
+  for (let i = 0; i < array.length; i++){
+    // push items from array -> unique array IF unique array does not include
+    if (!uniqueArr.includes(array[i])){
+      uniqueArr.push(array[i]);
+    }
+  }
+  // return unique items array
+  return uniqueArr;
+};
+
 
 //--------------------------------------------------------------------------------------------------------
 /** _.filter
@@ -515,6 +533,7 @@ _.some = function(collection, func){
     }
   } 
 };
+
 
 //--------------------------------------------------------------------------------------------------------
 // reduce has video tutorials!!! in shared google doc
