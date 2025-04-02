@@ -227,17 +227,31 @@ I: an array
 O: a new array with all duplicates removed
 */
 
+// _.unique = function(array){
+//   // holder array for unique items
+//   const uniqueArr = [];
+//   // loop through input array
+//   for (let i = 0; i < array.length; i++){
+//     // if unique array NOT include element
+//     if (!uniqueArr.includes(array[i])){
+//       //push to new array
+//       uniqueArr.push(array[i]);
+//     }
+//   }
+//   // return unique items
+//   return uniqueArr;
+// };
+
 _.unique = function(array){
-  // holder array for unique items
+  // holder array
   const uniqueArr = [];
-  // loop through input array
+  // for loop going through array
   for (let i = 0; i < array.length; i++){
-    // push items from array -> unique array IF unique array does not include
+    // if NOT in unique array
     if (!uniqueArr.includes(array[i])){
       uniqueArr.push(array[i]);
     }
   }
-  // return unique items array
   return uniqueArr;
 };
 
