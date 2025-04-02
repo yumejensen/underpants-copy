@@ -425,13 +425,10 @@ _.partition = function(array, func){
     //if true push to truthy
     if (func(array[i], i, array)){
       truthyArr.push(array[i]);
+      // else it will be falsy, push to falsy
     } else {
       falsyArr.push(array[i]);
     }
-    // if false push to falsy
-    // if (!func(array[i], i, array)){
-    //   falsyArr.push(array[i])
-    // }
   }
   //first index of wholeArr is truthy, second index is falsy
   wholeArr[0] = truthyArr;
