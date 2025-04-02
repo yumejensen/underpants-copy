@@ -521,16 +521,26 @@ E: n/a
 //   return allValues;
 // };
 
+// this one is not working
+// _.pluck = function (array, property){
+//   //for loop to go over array
+//   for (let i = 0; i < array.length; i++){
+//     // run the array through map - will return an array with function implemented
+//     // map takes in the array + anonymous function that returns values of key
+//     var plucked = _.map(array, function(){ return array[i][property]});
+//   }
+//   return plucked;
+
+// };
+
 _.pluck = function (array, property){
-  //for loop to go over array
-  for (let i = 0; i < array.length; i++){
     // run the array through map - will return an array with function implemented
     // map takes in the array + anonymous function that returns values of key
-    var plucked = _.map(array, function(){ return array[i][property]});
-  }
-  return plucked;
+    _.map(array, function(){ return array[property]});
+  };
+  
 
-};
+
 
 
 
@@ -708,7 +718,21 @@ _.some = function(collection, func){
 *   var data = {a:"one"};
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
+
+I: Any number of objects
+O: The first object with the properties of the following objects added inside it
 */
+// _.extend = function (object, update){
+//   // object assign is a static method that can merge object
+//   Object.assign(object, update);
+// }
+
+_.extend = function (object, ...update){
+  // object assign is a static method that can merge object
+  Object.assign(object, ...update);
+};
+
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
