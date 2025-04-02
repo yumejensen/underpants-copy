@@ -729,10 +729,9 @@ O: The first object with the properties of the following objects added inside it
 
 _.extend = function (object, ...update){
   // object assign is a static method that can merge object
-  Object.assign(object, ...update);
+  // use ... so that it can take any number of params
+  return Object.assign(object, ...update);
 };
-
-
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
