@@ -694,7 +694,29 @@ _.some = function(collection, func){
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+_.reduce = function(array, func, seed){
+  // initialize an output variable as our accumulator
+  let output;
 
+  // if seed undefined, use first value of collection as seed
+  if (seed === undefined){
+    output = array[0];
+    // now, we need a for loop that starts at INDEX 1 (we already have index 0)
+    for (let i = 1; i < array.length; i++){
+      // reassign output (accumulator) to the result of invoking func
+      output = func(output, array[i], i);
+    }
+  } else { // seed is defined
+    // now, need a for loop to go over array
+    output = seed;
+    for (let i = 0; array.length; i++){
+      output = func(output, array[i], i)
+    }
+  } 
+  
+
+  return output;
+};
 
 
 //--------------------------------------------------------------------------------------------------------
