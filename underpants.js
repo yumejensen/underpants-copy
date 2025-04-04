@@ -707,14 +707,13 @@ _.reduce = function(array, func, seed){
       output = func(output, array[i], i);
     }
   } else { // seed is defined
-    // now, need a for loop to go over array
+    // now, need a for loop to go over array at index 0, want to go over whole array
     output = seed;
     for (let i = 0; array.length; i++){
+      //reassign output to the result of invoking func
       output = func(output, array[i], i)
     }
   } 
-  
-
   return output;
 };
 
